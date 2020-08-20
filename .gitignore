@@ -147,3 +147,15 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+
+# Static root folder
+
+/static
+
+# macOS stuff
+
+.DS_Store
+
+# VS Code
+
+.vscode/
