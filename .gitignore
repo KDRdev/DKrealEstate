@@ -156,6 +156,10 @@ dmypy.json
 
 .DS_Store
 
+# Django secret key
+
+dkre/secret_settings.py
+
 # VS Code
 
 .vscode/
