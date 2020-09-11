@@ -160,6 +160,10 @@ dmypy.json
 
 dkre/secret_settings.py
 
+# DB config file
+
+dkre/db_config.py
+
 # VS Code
 
 .vscode/
