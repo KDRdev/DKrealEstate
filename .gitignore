@@ -167,3 +167,7 @@ dkre/db_config.py
 # VS Code
 
 .vscode/
+
+# Email config
+
+dkre/email_config.py
