@@ -1,18 +1,41 @@
 version: '3'
     
 services:
+  web:
+    build: .
+    volumes:
+      - .:/DKRealEstate
+    networks:
+      - nginx_network
+      - db_network
+    depends_on:
+      - db
+  nginx:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - nginx_network
+    depends_on: 
+      - web
   db:
     image: postgres
     environment:
       - POSTGRES_DB=
       - POSTGRES_USER=
       - POSTGRES_PASSWORD=
-  web:
-    build: .
-    command: python manage.py runserver
-    volumes:
-      - .:/DKRealEstate
-    ports:
-      - "80:8000"
-    depends_on:
-      - db
+    volumes: 
+      - db_volume:/var/lib/postgresql/data
+    networks:
+      - db_network
+  
+networks:
+  nginx_network:
+    driver: bridge
+  db_network:
+    driver: bridge
+
+volumes:
+  db_volume:
