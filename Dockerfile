@@ -8,6 +8,6 @@ COPY . /DKRealEstate
 COPY requirements.txt /DKRealEstate/
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["gunicorn", "--chdir", "dkre", "--bind", ":8000", "dkre.wsgi:application"]
+CMD ["gunicorn", "--chdir", "dkre", "--bind", ":80", "dkre.wsgi:application"]
